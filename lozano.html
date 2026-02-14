@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .heart-container {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .big-heart {
+            font-size: clamp(4rem, 15vw, 10rem);
+            color: #ff6b9d;
+            animation: heartbeat 1.5s infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.5));
+        }
+
+        .big-heart:hover {
+            transform: scale(1.1);
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 1s ease-out;
+            max-width: 600px;
+        }
+
+        .message-box h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .message-box p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff1744 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Floating hearts animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Gallery section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .gallery-item .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .gallery-item p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10%, 30% {
+                transform: scale(1.1);
+            }
+            20%, 40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .message-box {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+
+            .button-group {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+
+            .hero-section {
+                min-height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="container">
+        <header>
+            <h1>💕 Happy Valentine's Day 💕</h1>
+            <p class="subtitle">Celebrating Love & Romance</p>
+        </header>
+
+        <section class="hero-section">
+            <div class="heart-container">
+                <div class="big-heart" id="bigHeart">❤️</div>
+            </div>
+
+            <div class="message-box">
+                <h2>You Are Loved</h2>
+                <p>
+                    Love is not just about flowers and chocolates. It's about the little moments, 
+                    the shared smiles, the comforting presence, and the unwavering support. 
+                    Today and every day, may you feel cherished, appreciated, and deeply loved.
+                </p>
+            </div>
+
+            <div class="button-group">
+                <button class="btn" id="loveBtn">Send Love 💌</button>
+                <button class="btn" id="surpriseBtn">Surprise Me ✨</button>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="gallery-item" style="animation-delay: 0.1s">
+                <div class="icon">💝</div>
+                <h3>Thoughtful Gifts</h3>
+                <p>Show your love with meaningful presents that come from the heart.</p>
+            </div>
+            <div class="gallery-item" style="animation-delay: 0.2s">
+                <div class="icon">🌹</div>
+                <h3>Romantic Gestures</h3>
+                <p>Express your feelings with beautiful flowers and sweet surprises.</p>
+            </div>
+            <div class="gallery-item" style="animation-delay: 0.3s">
+                <div class="icon">💑</div>
+                <h3>Quality Time</h3>
+                <p>Create unforgettable memories together with your special someone.</p>
+            </div>
+            <div class="gallery-item" style="animation-delay: 0.4s">
+                <div class="icon">💌</div>
+                <h3>Love Letters</h3>
+                <p>Pour your heart out with words that will be treasured forever.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with ❤️ for Valentine's Day 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            
+            document.getElementById('floatingHearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Generate hearts periodically
+        setInterval(createFloatingHeart, 500);
+
+        // Big heart click animation
+        const bigHeart = document.getElementById('bigHeart');
+        bigHeart.addEventListener('click', function() {
+            // Create burst of hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const burstHeart = document.createElement('div');
+                    burstHeart.classList.add('floating-heart');
+                    burstHeart.textContent = '💖';
+                    burstHeart.style.left = '50%';
+                    burstHeart.style.top = '50%';
+                    burstHeart.style.fontSize = '30px';
+                    burstHeart.style.opacity = '1';
+                    burstHeart.style.animation = 'float 2s ease-out forwards';
+                    document.getElementById('floatingHearts').appendChild(burstHeart);
+                    
+                    setTimeout(() => burstHeart.remove(), 2000);
+                }, i * 100);
+            }
+        });
+
+        // Love button
+        const loveBtn = document.getElementById('loveBtn');
+        loveBtn.addEventListener('click', function() {
+            const messages = [
+                '💕 Love sent successfully!',
+                '💖 Your love is on its way!',
+                '💝 Message of love delivered!',
+                '💗 Spreading love and happiness!',
+                '💓 Love is in the air!'
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMessage);
+        });
+
+        // Surprise button
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        surpriseBtn.addEventListener('click', function() {
+            const surprises = [
+                'Did you know? The heart symbol ❤️ we use today doesn\'t actually look like a real heart!',
+                'Fact: 220,000 wedding proposals happen on Valentine\'s Day each year!',
+                'Love Tip: The best gift is your time and attention! 💝',
+                'Fun Fact: Wearing your heart on your sleeve is a real medieval tradition!',
+                'Remember: Love is not just for Valentine\'s Day - celebrate it every day! 💕'
+            ];
+            const randomSurprise = surprises[Math.floor(Math.random() * surprises.length)];
+            alert(randomSurprise);
+        });
+
+        // Add hover effect to gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 10px 30px rgba(255, 107, 157, 0.4)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Create initial hearts on load
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 300);
+        }
+    </script>
+</body>
+</html>
